@@ -1,8 +1,8 @@
-module.exports.asyncForEach = async (array, callback) => {
-    let data = {};
-    for (let index = 0; index < array.length; index++) {
-        data[index] = await callback(array[index], index, array);
-    }
-
-    return data;
+module.exports.asyncForEach = async (array, mapUserPostData) => {
+  // array.map(async (user, index) => {
+  //   await mapUserPostData(user, index);
+  // });
+  for (let index = 0; index < array.length; index++) {
+    await mapUserPostData(array[index], index);
+  }
 };
